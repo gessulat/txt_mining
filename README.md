@@ -10,7 +10,8 @@ Diagram
 
 Tools
 -----
+
 *: self-written
 
-> * XML to text: xml_to_text.py  -- usage: xml_to_text.py [-h] [--out OUT] {refs,abs} input
+*  __XML to text__ *: xml_to_text.py 
 
