@@ -11,7 +11,11 @@ Diagram
 Tools
 -----
 
-*: self-written
+*	__xml_to_text.py__: extracts references and abstracts from an xml file (citeseer.xml)
+*	__next_tool.py__:
 
-*  __XML to text__ *: xml_to_text.py 
+
+
+
+
 

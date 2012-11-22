@@ -2,7 +2,7 @@ import xml.sax, argparse
 from xml.sax.saxutils import unescape
  
 class Xml_to_abstract(xml.sax.ContentHandler):
-	"""
+	"""	
 	Every line in output.txt is one document. The first word in every line is the document's Id, the rest the abstract's words
 	"""
 	def __init__(self, outFile=False):
