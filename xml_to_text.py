@@ -3,7 +3,7 @@ from xml.sax.saxutils import unescape
  
 class Xml_to_abstract(xml.sax.ContentHandler):
 	"""
-	Every line is in the output.txt is one document. The first word in the line is the document's Id, the rest the abstract's words
+	Every line in output.txt is one document. The first word in every line is the document's Id, the rest the abstract's words
 	"""
 	def __init__(self, outFile=False):
 		xml.sax.ContentHandler.__init__(self)
@@ -42,7 +42,7 @@ class Xml_to_abstract(xml.sax.ContentHandler):
 
 class Xml_to_refs(xml.sax.ContentHandler):
 	"""
-	Every line is in the output.txt is one document. The first word in the line is the document's Id, the rest its relations (references)
+	Every line in output.txt is one document. The first word in every line is the document's Id, the rest its relations (references)
 	"""
 	def __init__(self, outFile=False):
 		xml.sax.ContentHandler.__init__(self)
