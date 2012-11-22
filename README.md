@@ -11,8 +11,8 @@ Diagram
 Tools
 -----
 
-*	__xml_to_text.py__: extracts references and abstracts from an xml file (citeseer.xml)
-*	__next_tool.py__:
+*	__token_extractor.py__: extracts references and abstracts as tokens from an xml file (citeseer.xml)
+*	__set_extractor.py__: extracts an id sets from reference tokens or a word set from abstract tokens
 
 
 
