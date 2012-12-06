@@ -1,12 +1,14 @@
 import argparse
 
+def striplist(l):
+    return([x.strip() for x in l])
+
 def write_ref_ids( inputFile, outputFile=False):
 	ids = []
 	print 'reading all identifiers...'
 	for line in inputFile:
 		token = line.split(" ")
-		identifier = token[0]
-		ids.append(identifier)
+		ids.extend(striplist(token))
 	print 'number of identifiers: '+str(len(ids))
 	print 'removing duplicates...'
 	ids = set(ids)
@@ -45,7 +47,7 @@ def main():
 	parser = argparse.ArgumentParser()
 	parser.add_argument('part', choices=('ids', 'words'), 
 								help="What part of the xml file do you want to parse? Choose abstracts (abs) or references (refs).")
-	parser.add_argument('input', help='input file path (citeseer xml file)')
+	parser.add_argument('input', help='input file path (references.txt or abstracts.txt)')
 	parser.add_argument('out', default=False, help="file path of an output file. If not set, this writes to the console.")
 	
 	args = parser.parse_args()

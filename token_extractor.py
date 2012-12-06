@@ -31,14 +31,14 @@ class Xml_to_abstract(xml.sax.ContentHandler):
 			for t in content_string.split(): self.abstract_array.append(t)
 
 	def endElement(self, element_name):
+		self.record_count += 1
 		leaving_element = self.stack.pop()
 		if( leaving_element == 'record'):	
 			self.out_string += " ".join(self.abstract_array).encode('utf8')
 			if( self.out ):
-				self.record_count += 1
 				self.out.write(self.out_string+"\n".encode('utf8'))
 			else:
-				print self.out_string
+				print str(self.record_count)+"	"+self.out_string 
 
 class Xml_to_refs(xml.sax.ContentHandler):
 	"""
@@ -71,13 +71,13 @@ class Xml_to_refs(xml.sax.ContentHandler):
 	def endElement(self, element_name):
 		leaving_element = self.stack.pop()
 		if( leaving_element == 'record'):
-
+			self.record_count += 1
 			self.out_string += " ".join( self.references )
 			if( self.out ):
-				self.record_count += 1
+				
 				self.out.write(self.out_string +"\n".encode('utf8') )
 			else:
-				print self.out_string 
+				print str(self.record_count)+"	"+self.out_string 
 
 
 def main():
