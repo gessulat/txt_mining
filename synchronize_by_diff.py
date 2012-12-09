@@ -14,7 +14,7 @@ def main():
 	old = pickle.load(old_file)
 
 	diffFilePath = args.diff
-	diff_file = open(outFilePath)
+	diff_file = open(diffFilePath)
 	diff = pickle.load(diff_file)
 		
 	print str(datetime.now())+ 'appending diff ', diff.name, ' to ', old.name
