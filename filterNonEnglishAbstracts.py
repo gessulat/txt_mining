@@ -1,6 +1,7 @@
 import cPickle
 from datetime import datetime
 from guess_language import guessLanguage
+from fish import ProgressFish
 
 def main():
 	source = open("../dense_abstracts.pickle")
@@ -19,7 +20,12 @@ def main():
 
 	print "deleting non-English ones"
 	empty_cnt = 0
+
+	fish = ProgressFish(total = len(abstracts))
+	count = 0
 	for article_id, abstract in abstracts.items():
+		count += 1
+		fish.animate(amount=count)
 		if 'en' != guessLanguage( abstract ):
 			empty_cnt += 1
 			deleted_abstract_ids.append(article_id)
