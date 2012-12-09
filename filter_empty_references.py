@@ -20,8 +20,6 @@ def main():
 	dist = {}
 
 	for article_id, adj_list in refs.items():
-		if len(adj_list) == 2700:
-			print article_id
 		if dist.has_key(len(adj_list)):
 			dist[len(adj_list)] += 1
 		else:
