@@ -17,7 +17,7 @@ class Xml_to_abs(xml.sax.ContentHandler):
 		self.doc_id = ""
 		self.recent_date = False
 		if( outFile ):
-			print str(datetime.now())+" writing output to "+outFile.name+ " - starting to read abstracts!\n"		
+			print str(datetime.now())+" starting to read abstracts!\n"		
 
 	def startElement(self, entering_element, attrs):
 		self.stack.append(entering_element)

@@ -13,8 +13,9 @@ class Xml_to_refs(xml.sax.ContentHandler):
 		self.out = outFile
 		self.abstract_array = [] # safety first!
 		self.doc_id = ""
+		self.recent_date = False
 		if( outFile ):
-			print str(datetime.now())+" writing output to "+outFile.name+ " - starting to read abstracts!\n"		
+			print str(datetime.now())+" starting to read references!\n"		
 
 	def startElement(self, entering_element, attrs):
 		self.stack.append(entering_element)
@@ -27,12 +28,18 @@ class Xml_to_refs(xml.sax.ContentHandler):
 				self.doc_id = content.split(":")[-1]
 			if( self.stack[-1] == "dc:relation" ):
 				self.references.append( content )
+			if( self.stack[-1] == "datestamp"):
+				try:
+					self.recent_date = time.strptime(content, "%Y-%m-%d")
+				except ValueError:
+					self.recent_date = time.strptime("2013-01-01", "%Y-%m-%d")
 
 	def endElement(self, element_name):
 		leaving_element = self.stack.pop()
 		if( leaving_element == 'record'):
-			self.record_count += 1
-			self.refs_pickle[self.doc_id] = self.references
+			if self.deadline > self.recent_date:
+				self.record_count += 1
+				self.refs_pickle[self.doc_id] = self.references
 	
 	def endDocument(self):
 		print str(datetime.now())+' starting to persist references to: '+outFile
