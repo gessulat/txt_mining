@@ -12,21 +12,20 @@ def main():
 
 	sourceFilePath = args.input
 	old_file = open(sourceFilePath)
-	old = pickle.load(old_file)
 
 	diffFilePath = args.diff
 	diff_file = open(diffFilePath)
-	diff = pickle.load(diff_file)
 	
-	warn = False
-
-	print str(datetime.now())+ 'appending diff ', diff.name, ' to ', old.name
+	print str(datetime.now())+ ' appending diff ', diff_file.name, ' to ', old_file.name
+	
+	diff = pickle.load(diff_file)
+	old = pickle.load(old_file)
+	warn = False	
 
 	for article_id, _ in diff.items():
 		if old.has_key(article_id):
 			del old[article_id]
 		else:
-			print 'WARNING: the two documents dont match' 
 			warn = True
 
 	if warn:
@@ -35,13 +34,13 @@ def main():
 	outFilePath = args.out
 	out_file = open(outFilePath, 'w')
 
-	print str(datetime.now())+ 'starting to persist result ...'
+	print str(datetime.now())+ ' starting to persist result ...'
 
 	pickle.dump( old, out_file )
 
-	old.close()
-	diff.close()
-	out.close()
+	old_file.close()
+	diff_file.close()
+	out_file.close()
 
 if __name__ == "__main__":
 	main()
