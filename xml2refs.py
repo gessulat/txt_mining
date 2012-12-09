@@ -1,13 +1,14 @@
 import xml.sax, argparse, pickle
 from xml.sax.saxutils import unescape
 from datetime import datetime
-
+import time
 
 class Xml_to_refs(xml.sax.ContentHandler):
 
 	def __init__(self, outFile=False):
 		xml.sax.ContentHandler.__init__(self)
 		self.stack = []
+		self.deadline = time.strptime("2010-01-01", "%Y-%m-%d")
 		self.refs_pickle = {}
 		self.record_count = 0
 		self.out = outFile
