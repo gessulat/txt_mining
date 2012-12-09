@@ -49,7 +49,7 @@ class Xml_to_refs(xml.sax.ContentHandler):
 def main():
 	source = open("../citeseer.xml")
 	out = open('../references.pickle', 'w')
-	print "xml2references.py - extracts references from '"+source+"' and writing it to '"+out+"'"
+	print "xml2references.py - extracts references from '"+source.name+"' and writing it to '"+out.name+"'"
 
 	xml.sax.parse(source, Xml_to_refs( out ) )
 	source.close()
