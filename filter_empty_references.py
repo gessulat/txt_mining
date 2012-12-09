@@ -1,4 +1,4 @@
-import pickle
+import cPickle
 from datetime import datetime
 
 def main():
@@ -12,7 +12,7 @@ def main():
 		return -1
 	
 	diff = {}
-	refs = pickle.load(source)
+	refs = cPickle.load(source)
 
 	# statistics: store informtion about the density in numbers and the distibution of our data
 	refs_tobeginwith = len(refs)
@@ -35,8 +35,8 @@ def main():
 	print 'Distribution: ', dist
 	#print str(datetime.now())+' starting to persist references to: '+ out.name 
 
-	pickle.dump(refs, out)
-	pickle.dump(diff, out_diff)
+	cPickle.dump(refs, out, -1)
+	cPickle.dump(diff, out_diff, -1)
 
 	source.close()
 	out.close()
