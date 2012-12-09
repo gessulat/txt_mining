@@ -1,4 +1,4 @@
-import xml.sax, argparse, pickle
+import xml.sax, argparse, cPickle
 from xml.sax.saxutils import unescape
 from datetime import datetime
 import time
@@ -13,7 +13,7 @@ class Xml_to_abs(xml.sax.ContentHandler):
 		self.abs_pickle = {}
 		self.record_count = 0
 		self.out = outFile
-		self.abstract_array = [] # safety first!
+		self.abstract = "" # safety first!
 		self.doc_id = ""
 		self.recent_date = False
 		if( outFile ):
@@ -22,7 +22,7 @@ class Xml_to_abs(xml.sax.ContentHandler):
 	def startElement(self, entering_element, attrs):
 		self.stack.append(entering_element)
 		if( entering_element == 'record'):
-			self.abstract_array = [] # reset
+			self.abstract = "" # reset
 			self.doc_id = ''
 
 	def characters(self, content):
@@ -30,7 +30,7 @@ class Xml_to_abs(xml.sax.ContentHandler):
 				self.doc_id = content.split(":")[-1]
 			if( self.stack[-1] == "dc:description" ):
 				content_string = unescape( content )
-				for t in content_string.split(): self.abstract_array.append(t)
+				self.abstract_array = content_string
 			if( self.stack[-1] == "datestamp"):
 				try:
 					self.recent_date = time.strptime(content, "%Y-%m-%d")
@@ -47,7 +47,7 @@ class Xml_to_abs(xml.sax.ContentHandler):
 	
 	def endDocument(self):
 		print str(datetime.now())+' starting to persist abstracts to: '+self.out.name
-		pickle.dump(self.abs_pickle, self.out)
+		cPickle.dump(self.abs_pickle, self.out, -1)
 
 
 def main():
