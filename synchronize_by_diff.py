@@ -1,4 +1,4 @@
-import pickle
+import cPickle
 import argparse
 from datetime import datetime
 
@@ -18,8 +18,8 @@ def main():
 	
 	print str(datetime.now())+ ' appending diff ', diff_file.name, ' to ', old_file.name
 	
-	diff = pickle.load(diff_file)
-	old = pickle.load(old_file)
+	diff = cPickle.load(diff_file)
+	old = cPickle.load(old_file)
 	warn = False	
 
 	for article_id, _ in diff.items():
@@ -36,7 +36,7 @@ def main():
 
 	print str(datetime.now())+ ' starting to persist result ...'
 
-	pickle.dump( old, out_file )
+	cPickle.dump( old, out_file, -1 )
 
 	old_file.close()
 	diff_file.close()
