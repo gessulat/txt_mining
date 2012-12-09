@@ -2,7 +2,7 @@ import cPickle
 from datetime import datetime
 
 def main():
-	source = open("../abstracts.pickle")
+	source = open("../filtered_abstracts.pickle")
 	out_file = open('../dense_abstracts.pickle', 'w')
 	out_diff = open('../dense_abstracts_diff.pickle', 'w')
 	print str(datetime.now())+ "filterEmptyeAbstracts.py - deletes entries without abstracts "

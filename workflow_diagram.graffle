@@ -65,8 +65,8 @@
 			<integer>65</integer>
 			<key>Points</key>
 			<array>
-				<string>{458.05821984783421, 513.49935334449242}</string>
-				<string>{454.90183441051181, 575.5001179201289}</string>
+				<string>{458.15378602622962, 513.49947771859308}</string>
+				<string>{455.31769941601004, 575.50048772317803}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -156,8 +156,8 @@ step 2}</string>
 			<integer>57</integer>
 			<key>Points</key>
 			<array>
-				<string>{122.51732063085835, 576.49924566460572}</string>
-				<string>{124.93707944297066, 620.50082329563338}</string>
+				<string>{122.5268226416968, 576.49923152800352}</string>
+				<string>{124.96918250112108, 620.50077442301676}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -191,8 +191,8 @@ step 2}</string>
 			<integer>55</integer>
 			<key>Points</key>
 			<array>
-				<string>{455.54934792766983, 423.49919752363269}</string>
-				<string>{458.55577203643628, 476.50014407468194}</string>
+				<string>{455.43329494879731, 423.49936491413638}</string>
+				<string>{458.10721201059465, 476.50058123923253}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -226,8 +226,8 @@ step 2}</string>
 			<integer>53</integer>
 			<key>Points</key>
 			<array>
-				<string>{118.01823757454758, 495.49924432914651}</string>
-				<string>{120.44017737864118, 539.50081852593405}</string>
+				<string>{118.02690297347159, 495.49923143806257}</string>
+				<string>{120.46945390157836, 539.50077402347961}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -261,8 +261,8 @@ step 2}</string>
 			<integer>52</integer>
 			<key>Points</key>
 			<array>
-				<string>{113.53755429882575, 414.4992154187708}</string>
-				<string>{116.00544011289507, 458.50072103159977}</string>
+				<string>{113.52859524513002, 414.49922890682666}</string>
+				<string>{115.97517134519998, 458.5007654951516}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -294,7 +294,20 @@ step 2}</string>
 			<key>Shape</key>
 			<string>RoundRect</string>
 			<key>Style</key>
-			<dict/>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Color</key>
+					<dict>
+						<key>b</key>
+						<string>0.726505</string>
+						<key>g</key>
+						<string>1</string>
+						<key>r</key>
+						<string>0.748877</string>
+					</dict>
+				</dict>
+			</dict>
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
@@ -303,7 +316,7 @@ step 2}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 filter deleted abstracts from references}</string>
+\f0\fs24 \cf0 synchronize_by_diff}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -315,6 +328,21 @@ step 2}</string>
 			<integer>49</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Color</key>
+					<dict>
+						<key>b</key>
+						<string>0.726505</string>
+						<key>g</key>
+						<string>1</string>
+						<key>r</key>
+						<string>0.748877</string>
+					</dict>
+				</dict>
+			</dict>
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
@@ -323,7 +351,7 @@ step 2}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 dense abstracts}</string>
+\f0\fs24 \cf0 dense_abstracts.pickle}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -373,8 +401,8 @@ step 2}</string>
 			<integer>47</integer>
 			<key>Points</key>
 			<array>
-				<string>{108.84856806679007, 333.49947482425603}</string>
-				<string>{110.86695424900853, 377.50193711914443}</string>
+				<string>{115.91760005924976, 333.49914633027066}</string>
+				<string>{113.34304436559768, 377.5005183917749}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -408,8 +436,8 @@ step 2}</string>
 			<integer>46</integer>
 			<key>Points</key>
 			<array>
-				<string>{104.41970798808283, 243.49938324408816}</string>
-				<string>{107.05469798448742, 296.50065149384938}</string>
+				<string>{106.15046871067948, 243.4949434806916}</string>
+				<string>{113.74758719393198, 296.50755834300867}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -443,8 +471,8 @@ step 2}</string>
 			<integer>45</integer>
 			<key>Points</key>
 			<array>
-				<string>{395.5159214528926, 389.74805344820413}</string>
-				<string>{172.93086474207422, 332.19259998001843}</string>
+				<string>{395.51684051376526, 389.29176549659957}</string>
+				<string>{181.50540976878534, 332.29682372283901}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -468,7 +496,7 @@ step 2}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{27, 297}, {162, 36}}</string>
+			<string>{{36, 297}, {162, 36}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -476,7 +504,20 @@ step 2}</string>
 			<key>Shape</key>
 			<string>RoundRect</string>
 			<key>Style</key>
-			<dict/>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Color</key>
+					<dict>
+						<key>b</key>
+						<string>0.726505</string>
+						<key>g</key>
+						<string>1</string>
+						<key>r</key>
+						<string>0.748877</string>
+					</dict>
+				</dict>
+			</dict>
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
@@ -485,7 +526,7 @@ step 2}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 filter empty references from abstracts}</string>
+\f0\fs24 \cf0 synchronize_by_diff}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -497,6 +538,21 @@ step 2}</string>
 			<integer>43</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Color</key>
+					<dict>
+						<key>b</key>
+						<string>0.726505</string>
+						<key>g</key>
+						<string>1</string>
+						<key>r</key>
+						<string>0.748877</string>
+					</dict>
+				</dict>
+			</dict>
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
@@ -505,10 +561,7 @@ step 2}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 filtered 
-\b abstracts
-\b0 \
-step 1}</string>
+\f0\fs24 \cf0 filtered_abstracts.pickle}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -633,8 +686,8 @@ step 1}</string>
 			<integer>37</integer>
 			<key>Points</key>
 			<array>
-				<string>{147.70271330134403, 747.2861453410361}</string>
-				<string>{288.74302233875017, 845.7142569774885}</string>
+				<string>{147.7098830672833, 747.28609214671428}</string>
+				<string>{288.78878494495672, 845.71391775241648}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -668,8 +721,8 @@ step 1}</string>
 			<integer>36</integer>
 			<key>Points</key>
 			<array>
-				<string>{120.88353096622714, 747.49972261210723}</string>
-				<string>{117.61784372636249, 845.50027862649688}</string>
+				<string>{120.88334733529075, 747.49972245209733}</string>
+				<string>{117.61668732870008, 845.50027758760064}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -738,8 +791,8 @@ step 1}</string>
 			<integer>34</integer>
 			<key>Points</key>
 			<array>
-				<string>{125.08114030680298, 657.49938435315596}</string>
-				<string>{122.4485806882839, 710.50065601209235}</string>
+				<string>{125.07544014429953, 657.49937671103987}</string>
+				<string>{122.42654942167545, 710.50062594554845}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -770,6 +823,21 @@ step 1}</string>
 			<integer>33</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Color</key>
+					<dict>
+						<key>b</key>
+						<string>0.726505</string>
+						<key>g</key>
+						<string>1</string>
+						<key>r</key>
+						<string>0.748877</string>
+					</dict>
+				</dict>
+			</dict>
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
@@ -778,7 +846,7 @@ step 1}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 dense references}</string>
+\f0\fs24 \cf0 dense_references.pickle}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -798,7 +866,7 @@ step 1}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 english abstracts}</string>
+\f0\fs24 \cf0 englisch_abstracts.pickle}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -953,8 +1021,8 @@ step 1}</string>
 			<integer>26</integer>
 			<key>Points</key>
 			<array>
-				<string>{263.58548627714612, 90.235867304922124}</string>
-				<string>{397.28849146753311, 161.76749343742017}</string>
+				<string>{263.68681473015687, 90.235317714157532}</string>
+				<string>{397.78735249504484, 161.76482202989627}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -988,8 +1056,8 @@ step 1}</string>
 			<integer>25</integer>
 			<key>Points</key>
 			<array>
-				<string>{198.69485418822484, 90.254901208731297}</string>
-				<string>{138.80514572517808, 125.74509879106949}</string>
+				<string>{198.69485420772074, 90.254901208732718}</string>
+				<string>{138.80514578225004, 125.74509879126728}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1170,7 +1238,7 @@ step 1}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 references}</string>
+\f0\fs24 \cf0 references.pickle}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1275,7 +1343,7 @@ step 1}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 abstracts}</string>
+\f0\fs24 \cf0 abstracts.pickle}</string>
 			</dict>
 		</dict>
 	</array>
@@ -1331,7 +1399,7 @@ step 1}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2012-12-09 17:01:48 +0000</string>
+	<string>2012-12-09 17:35:14 +0000</string>
 	<key>Modifier</key>
 	<string>Zarniwoop</string>
 	<key>NotesVisible</key>
@@ -1426,7 +1494,7 @@ step 1}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{-80, 85.393259799506026}, {1465.1685628757355, 825.84270990311757}}</string>
+		<string>{{-80, 85.393259799506041}, {1465.1685628757352, 825.84270990311768}}</string>
 		<key>Zoom</key>
 		<real>0.88999998569488525</real>
 		<key>ZoomValues</key>
