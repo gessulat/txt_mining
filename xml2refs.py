@@ -42,7 +42,7 @@ class Xml_to_refs(xml.sax.ContentHandler):
 				self.refs_pickle[self.doc_id] = self.references
 	
 	def endDocument(self):
-		print str(datetime.now())+' starting to persist references to: '+outFile
+		print str(datetime.now())+' starting to persist references to: '+self.out.name
 		pickle.dump(self.refs_pickle, self.out)
 
 

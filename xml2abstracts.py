@@ -46,7 +46,7 @@ class Xml_to_abs(xml.sax.ContentHandler):
 				self.abs_pickle[self.doc_id] = self.abstract_array
 	
 	def endDocument(self):
-		print str(datetime.now())+' starting to persist abstracts to: '+outFile.name
+		print str(datetime.now())+' starting to persist abstracts to: '+self.out.name
 		pickle.dump(self.abs_pickle, self.out)
 
 

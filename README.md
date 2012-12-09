@@ -11,7 +11,8 @@ Diagram
 Tools
 -----
 
-*	__token_extractor.py__: extracts references and abstracts as tokens from an xml file (citeseer.xml)
+*	__xml2abstract.py__: extracts abstracts from a xml file (citeseer.xml) and pickles it. Filters for documents before 2010.
+*	__xml2refs.py__: extracts references from a xml file (citeseer.xml) and pickles it. Filters for documents before 2010.
 *	__set_extractor.py__: extracts an id sets from reference tokens or a word set from abstract tokens
 
 
