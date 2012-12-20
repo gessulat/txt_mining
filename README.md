@@ -17,6 +17,10 @@ Workflow Overview
 
 Workflow Steps in detail
 ========================
+
+![Workflow Diagram](workflow_diagram_detail.jpg)
+
+
 Preprocessing
 -------------
 Before we work with the corpus we remove documents wich we cannot work with. These are:
