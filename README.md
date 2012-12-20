@@ -9,7 +9,7 @@ Input ist a xml document containing abstracts and references of the papers. We u
 
 Workflow Overview
 -----------------
-![Workflow Diagram](hybrid_clustering_flow.png)
+![Workflow Diagram](https://github.com/gessulat/txt_mining/blob/master/hybrid_clustering_flow.png?raw=true)
 
 
 ------------------------------------
@@ -18,7 +18,7 @@ Workflow Overview
 Workflow Steps in detail
 ========================
 
-![Workflow Diagram](workflow_diagram_detail.jpg)
+![Workflow Diagram](https://github.com/gessulat/txt_mining/blob/master/workflow_diagram_detail.jpg?raw=true)
 
 
 Preprocessing
