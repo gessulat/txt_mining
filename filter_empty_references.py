@@ -5,7 +5,7 @@ def main():
 	source = open("../references.pickle")
 	out = open('../dense_references.pickle', 'w')
 	out_diff = open('../dense_references_diff.pickle', 'w')
-	print str(datetime.now())+ "xml2references.py - extracts articles that cite stuff from '"+source.name+"' and writing it to '"+out.name+"' (save diff to '"+out_diff.name+"'"
+	print str(datetime.now())+ " extracts articles that cite stuff from '"+source.name+"' and writing it to '"+out.name+"' (save diff to '"+out_diff.name+"'"
 
 	if not source:
 		print "This works.... NOT"
