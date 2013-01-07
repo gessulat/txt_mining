@@ -15,14 +15,9 @@ Workflow Overview
 ------------------------------------
 
 
-Workflow Steps in detail
-========================
-
-![Workflow Diagram](https://github.com/gessulat/txt_mining/blob/master/workflow_diagram_detail.jpg?raw=true)
-
 
 Preprocessing
--------------
+=============
 Before we work with the corpus we remove documents wich we cannot work with. These are:
 
 * __Documents that cite no other document:__ These documents do not contribute to the Tanimoto Distance calculation. Realized by: ``filter_empty_references.py``
@@ -37,6 +32,12 @@ Realized by: ``filter_nonEnglish_abstracts.py``
 These 3 filter scripts output the new filtered dictionary and a diff file. Since we just reduce either the references or the abstracts dicts, we need to keep both in sync. Realized by: ``synchronize_by_diff.py``.
 
 For further information on how to use these scripts use ``--help``.
+Preprocessing Steps in detail
+----
+
+![Workflow Diagram](https://github.com/gessulat/txt_mining/blob/master/preprocessing_diagram.jpg?raw=true)
+
+
 
 Sampling
 --------
