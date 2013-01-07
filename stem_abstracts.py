@@ -13,14 +13,16 @@ def main():
 
 	word_base = open(args.out_words, 'w')
 	stemmed_abstracts_file = open(args.out_stemmed_abs, 'w')
-	abstracts = cPickle.load(open(args.in_abs))
+	abstracts_file = open(args.in_abs)
+	
+	print "loading abstracts..."
+	abstracts = cPickle.load(abstracts_file)
 
-	print "loading pickles..."
 	
 	words = []
 	stemmed_abstracts = {}
-
 	fish = ProgressFish(total=len(abstracts))
+	
 	cnt = 0
 	print "reading all words..."
 	for (key, abstract) in abstracts.items():
@@ -33,14 +35,17 @@ def main():
 				new_sentence.append( stemmed_word )
 		stemmed_abstracts[key] = list(set(new_sentence))
 		cnt += 1
+		if cnt == 500:
+			break
 		fish.animate(amount=cnt)
 
 	print "removing duplicates"
 	words = set(words)
+	
+	print "persisting word_base"
 	cPickle.dump(words, word_base)
 
-	print "persisting data"
-	
+	print "persisting abstracts"
 	cPickle.dump(stemmed_abstracts, stemmed_abstracts_file)
 
 if __name__ == "__main__":

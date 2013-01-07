@@ -43,14 +43,19 @@ Sampling
 --------
 Sampling is necessary to reduce the size of the distance matrix. We consider following sampling methods as options. It makes sense to sample before calculating __Rogers-Tanimoto__ and __Cosine distance__ distance matrices to keep the matrices relatively small.
 
-__Should the sampling happen before creating the dictionary out of the abstracts?__ If the documents are sampled in advance, the set of words is likely to be smaller. On the other hand, if we store the abstract word lists for every document as adjacency list only the dictionary but not the abstract word lists gets bigger. 
+* __Should the sampling happen before creating the dictionary out of the abstracts?__ If the documents are sampled in advance, the set of words is likely to be smaller. On the other hand, if we store the abstract word lists for every document as adjacency list only the dictionary but not the abstract word lists gets bigger. 
+  * __Decision__: Preprocessing including stemming of the whole corpus takes about 4 hours on a 2012 Macbook Air (SSD, 4 GB RAM), which is acceptable. Thus, we decided to do the sampling after stemming the word list - this way we can use different sampling methods and don't need to change our word_base.pickle (the word dictionary generated from stemming).
 
 
-1. __Random sampling__: x% of the documents are sampled at random (or just the first x%). It is most easy to calculate. 
-* __Timestamp based sampling__: Only documents in a given timeframe from timestamp t1 and timestamp t2 are considered. The method is easy to calculate but may have bad effects for the h-core calculation and clustering. This would happen if a significant amount of documents that influence the Rogers-Tanimoto distance and the h-core calculation lay outside of the time frame used. 
-* __Reference list size sampling__: The top x% of the documents ordered by the size of their referenze list are considered. With this method there is a good chance (but only chance!) that the documents in the remaining corpus are well connected. Furthermore it is easy to calculate.
+1. __Random sampling__: x% of the documents are sampled at random. It is most easy to calculate. Keyword: ``random``
+* __Reference list size sampling__: The top x% of the documents ordered by the size of their referenze list are considered. With this method there is a good chance (but only chance!) that the documents in the remaining corpus are well connected. Furthermore it is easy to calculate. Keyword: ``most_refs``
 * __Most cited sampling__: The top x% of the documents ordered by the number of times a document is cited by other documents. This method is hard to calculate, but it ensures good connection to find h-cores and calculate Rogers-Tanimoto (by their definition)
+* __Timestamp based sampling__: Only documents in a given timeframe from timestamp t1 and timestamp t2 are considered. The method is easy to calculate but may have bad effects for the h-core calculation and clustering. This would happen if a significant amount of documents that influence the Rogers-Tanimoto distance and the h-core calculation lay outside of the time frame used. 
 *  __Hierarchical sampling__: A combination of other sampling methods.
+
+
+__Random sampling__ and __Reference list size sampling__ are realized by: ``sampling.py``. The script let's you choose the sampling method by the according keyword. Also see --help
+
 
 
 
