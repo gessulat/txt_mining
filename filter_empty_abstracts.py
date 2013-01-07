@@ -11,7 +11,7 @@ def main():
 		print "This works.... NOT"
 		return -1
 	
-	deleted_abstract_ids = []
+	deleted_abstract_ids = {}
 	print "reading abstracts..."
 	abstracts = cPickle.load(source)
 	abs_tobeginwith = float(len(abstracts))
@@ -21,7 +21,7 @@ def main():
 	for article_id, abstract in abstracts.items():
 		if 0 == len(abstract.strip()):
 			empty_cnt += 1
-			deleted_abstract_ids.append(article_id)
+			deleted_abstract_ids[article_id] = abstracts[article_id]
 			del abstracts[article_id]
 
 	print str(datetime.now())+' starting to persist references to: '+ out_file.name +' and '+out_diff.name
