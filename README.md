@@ -27,7 +27,7 @@ Before we work with the corpus we remove documents wich we cannot work with. The
 * __Documents that are not in English:__ If we have a corpus that has multiple languages it is difficult to stem the results, because we would have to first guess the language of each abstract and then stemm according to that language. This is:
   a) time consuming and
   b) we would need an own stemmer for each language
-Realized by: ``filter_nonEnglish_abstracts.py``
+Realized by: ``filter_nonEnglish_abstracts.py`` uses the [guessLanguage python package](http://pypi.python.org/pypi/guess-language)
 
 These 3 filter scripts output the new filtered dictionary and a diff file. Since we just reduce either the references or the abstracts dicts, we need to keep both in sync. Realized by: ``synchronize_by_diff.py``.
 
@@ -46,7 +46,7 @@ Sampling is necessary to reduce the size of the distance matrix. We consider fol
 __Should the sampling happen before creating the dictionary out of the abstracts?__ If the documents are sampled in advance, the set of words is likely to be smaller. On the other hand, if we store the abstract word lists for every document as adjacency list only the dictionary but not the abstract word lists gets bigger. 
 
 
-1. __Random sampling__: x% of the documents are sampled at random (or just the first x%). It is most easy to calculate.
+1. __Random sampling__: x% of the documents are sampled at random (or just the first x%). It is most easy to calculate. 
 * __Timestamp based sampling__: Only documents in a given timeframe from timestamp t1 and timestamp t2 are considered. The method is easy to calculate but may have bad effects for the h-core calculation and clustering. This would happen if a significant amount of documents that influence the Rogers-Tanimoto distance and the h-core calculation lay outside of the time frame used. 
 * __Reference list size sampling__: The top x% of the documents ordered by the size of their referenze list are considered. With this method there is a good chance (but only chance!) that the documents in the remaining corpus are well connected. Furthermore it is easy to calculate.
 * __Most cited sampling__: The top x% of the documents ordered by the number of times a document is cited by other documents. This method is hard to calculate, but it ensures good connection to find h-cores and calculate Rogers-Tanimoto (by their definition)
