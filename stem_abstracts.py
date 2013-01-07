@@ -11,7 +11,7 @@ def main():
 
 	args = parser.parse_args()
 
-	word_base = open(ags.out_words, 'w')
+	word_base = open(args.out_words, 'w')
 	stemmed_abstracts_file = open(args.out_stemmed_abs, 'w')
 	abstracts = cPickle.load(open(args.in_abs))
 
