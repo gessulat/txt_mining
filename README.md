@@ -26,7 +26,7 @@ Preprocessing
 Before we work with the corpus we remove documents wich we cannot work with. These are:
 
 * __Documents with no abstract:__ In the VSM documents with an empty abstract are identical, meaning the distance between them is 0. But it makes no sense that documents that have no abstract ( most probably a corpus error) results in our algorithms thinking these documents are very similar.
-* __Documents that are cited by no other document:__ It is not possible to calculate the Rogers-Tanimoto distance between two documents that are not cited - division by zero. (See Rogers-Tanimoto Distance). __TO BE DONE!__
+
 * __Documents that cite no other document:__ These documents do not contribute to the Tanimoto Distance calculation.
 
 Sampling
