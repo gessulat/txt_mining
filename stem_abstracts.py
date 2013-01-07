@@ -11,12 +11,12 @@ def main():
 
 	args = parser.parse_args()
 
-	word_base = open(args.out_words, 'w')
-	stemmed_abstracts_file = open(args.out_stemmed_abs, 'w')
-	abstracts_file = open(args.in_abs)
+	
 	
 	print "loading abstracts..."
+	abstracts_file = open(args.in_abs)
 	abstracts = cPickle.load(abstracts_file)
+	abstracts_file.close()
 
 	
 	words = []
@@ -35,18 +35,20 @@ def main():
 				new_sentence.append( stemmed_word )
 		stemmed_abstracts[key] = list(set(new_sentence))
 		cnt += 1
-		if cnt == 500:
-			break
 		fish.animate(amount=cnt)
 
 	print "removing duplicates"
 	words = set(words)
-	
+
 	print "persisting word_base"
+	word_base = open(args.out_words, 'w')
 	cPickle.dump(words, word_base)
+	word_base.close()
 
 	print "persisting abstracts"
+	stemmed_abstracts_file = open(args.out_stemmed_abs, 'w')
 	cPickle.dump(stemmed_abstracts, stemmed_abstracts_file)
+	abstracts_file.close()
 
 if __name__ == "__main__":
 	main()

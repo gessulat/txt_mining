@@ -5,7 +5,8 @@ This project aims to cluster scientific papers by using a hybrid method from the
 
 For Clustering both measures are combined to a single distance measure using Fisher's inverse Xi^2 method. We cluster using [K-Medoids](http://en.wikipedia.org/wiki/K-medoids) setting the initial centroids with [h-index](http://en.wikipedia.org/wiki/H-index)-based [h-Cores](http://link.springer.com/article/10.1007%2Fs11192-012-0639-3). 
 
-Input ist a xml document containing abstracts and references of the papers. We use a corpus from  [CiteSeerX](http://citeseerx.ist.psu.edu/index).The given corpus is big with ~ 500k documents after preprocessing. Therefore, we need to sample documents from it to meet time and main memory constraints. We need to reduce it to ~ 4% of the actual size.
+Input ist a xml document containing abstracts and references of the papers. We use a corpus from  [CiteSeerX](http://citeseerx.ist.psu.edu/index).The given corpus is big with ~ 500k documents after preprocessing. Therefore, we need to sample documents from it to meet time and main memory constraints. We need to reduce it to ~ 4% of the actual size: __21000 documents__
+
 
 Workflow Overview
 -----------------
@@ -67,6 +68,7 @@ Rogers-Tanimoto Distance
 Cosine Distance
 ---------------
 * __Definition:__ Cosine Distance (CD) is the distance between between document __x__ and __y__ defined as ``CD(x,y)=cos(x,y)= ( x * y ) / ( |x| * |y| )``. Gewichtung möglich mit [Bag of words](http://en.wikipedia.org/wiki/Bag-of-words_model) oder [TF-IDF](http://en.wikipedia.org/wiki/Tf%E2%80%93idf)
+* To calculate the cosine distance in the bag-of-words model we need a vector for each abstract. The vector size is the same as the word_base word dictionary from our corpus, and counts the numbers each word appears in the given abstract. __Should we calculate the vectors in advance?__ We tested this on a small sample of 500 documents and the abstracts file went from 400kb to 20 mb in size. Since we assume that we 
 
 Fisher's inverse Xi^2 method
 ----------------------------
