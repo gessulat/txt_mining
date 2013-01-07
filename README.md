@@ -25,9 +25,18 @@ Preprocessing
 -------------
 Before we work with the corpus we remove documents wich we cannot work with. These are:
 
-* __Documents with no abstract:__ In the VSM documents with an empty abstract are identical, meaning the distance between them is 0. But it makes no sense that documents that have no abstract ( most probably a corpus error) results in our algorithms thinking these documents are very similar.
+* __Documents that cite no other document:__ These documents do not contribute to the Tanimoto Distance calculation. Realized by: ``filter_empty_references.py``
 
-* __Documents that cite no other document:__ These documents do not contribute to the Tanimoto Distance calculation.
+* __Documents with no abstract:__ In the VSM documents with an empty abstract are identical, meaning the distance between them is 0. But it makes no sense that documents that have no abstract ( most probably a corpus error) results in our algorithms thinking these documents are very similar. Realized by: ``filter_empty_abstracts.py``
+
+* __Documents that are not in English:__ If we have a corpus that has multiple languages it is difficult to stem the results, because we would have to first guess the language of each abstract and then stemm according to that language. This is:
+  a) time consuming and
+  b) we would need an own stemmer for each language
+Realized by: ``filter_nonEnglish_abstracts.py``
+
+These 3 filter scripts output the new filtered dictionary and a diff file. Since we just reduce either the references or the abstracts dicts, we need to keep both in sync. Realized by: ``synchronize_by_diff.py``.
+
+For further information on how to use these scripts use ``--help``.
 
 Sampling
 --------
