@@ -59,7 +59,9 @@ Sampling is necessary to reduce the size of the distance matrix. We consider fol
 __Random sampling__ and __Reference list size sampling__ are realized by: ``sampling.py``. The script let's you choose the sampling method by the according keyword. Also see --help
 
 
-
+-----
+Distances
+=========
 
 Rogers-Tanimoto Distance
 ------------------------
