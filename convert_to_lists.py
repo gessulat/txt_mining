@@ -9,8 +9,17 @@ def convert_to_list( abstracts, references ):
 	abs_list = list()
 	refs_list = list()
 	keys_list = list()
+	print len(references)
+	
+	cnt = 1
+	fish = ProgressFish(total=len(abstracts))
 	for key in references.keys():
-		print key
+		fish.animate(amount=cnt)
+		cnt +=1
+		abs_list.append( abstracts[key] )
+		refs_list.append( references[key] )
+		keys_list.append( key )
+	return abs_list, refs_list, keys_list
 		
 
 
@@ -39,18 +48,18 @@ def main():
 	abs_list, refs_list, key_list = convert_to_list( abstracts, references)
 	
 	print 'persist vector abstracts list'
-	output_file = open(args.out_abs,'w')
-	cPickle.dump( out_vector_abs, abs_list, -1 )
+	output_file = open(args.out_vector_abs,'w')
+	cPickle.dump( abs_list, output_file, -1 )
 	output_file.close()
 
 	print 'persist references list'
-	output_file = open(args.out_abs,'w')
-	cPickle.dump( out_refs, refs_list, -1 )
+	output_file = open(args.out_refs,'w')
+	cPickle.dump( refs_list, output_file, -1 )
 	output_file.close()
 
 	print 'persist key list'
-	output_file = open(args.out_abs,'w')
-	cPickle.dump( out_wb, key_list, -1 )
+	output_file = open(args.out_keys,'w')
+	cPickle.dump( key_list, output_file, -1 )
 	output_file.close()
 	
 
