@@ -34,7 +34,7 @@ Realized by: ``filter_nonEnglish_abstracts.py`` uses the [guessLanguage python p
 These 3 filter scripts output the new filtered dictionary and a diff file. Since we just reduce either the references or the abstracts dicts, we need to keep both in sync. Realized by: ``synchronize_by_diff.py``.
 
 For further information on how to use these scripts use ``--help``.
-Preprocessing Steps in detail
+Preprocessing steps in detail
 ----
 
 ![Workflow Diagram](https://github.com/gessulat/txt_mining/blob/master/img/preprocessing_diagram.jpg?raw=true)
