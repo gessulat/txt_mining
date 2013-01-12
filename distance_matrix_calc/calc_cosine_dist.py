@@ -22,7 +22,7 @@ def abstract_to_vector( abstract, word_base_dict ):
 
 	return vector
 
-def new_calc_cosine( abstracts, keys, word_base, buffer_length ):
+def calc_cosine( abstracts, keys, word_base, buffer_length ):
 	cnt = 0
 	word_base_dict = {}
 	for word in word_base:
@@ -89,7 +89,7 @@ def main():
 	word_base = cPickle.load(wb_file)
 	wb_file.close()
 
-	cosine_distances = new_calc_cosine( abstracts, keys, word_base, int(args.buffer_size) )
+	cosine_distances = calc_cosine( abstracts, keys, word_base, int(args.buffer_size) )
 	
 	print 'persist cosine distance matrix'
 	output_file = open(args.out_cosDist_mat,'w')

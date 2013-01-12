@@ -92,6 +92,7 @@ R
 SciPy
 -----
 * Tanimoto-Rogers
+* Cosine Distance
 
 
 Homebrewn
