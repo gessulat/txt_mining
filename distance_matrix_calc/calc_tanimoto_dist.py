@@ -32,7 +32,10 @@ def calc_tanimoto( refs, keys, buffer_length ):
     fish = ProgressFish(total=buffer_length)
     cnt = 0
     for i in range(no_of_docs):
-        vector_dict[keys[i]] = refs_to_vector( refs[i], refs_base ) 
+        vector = refs_to_vector( refs[i], refs_base ) 
+        print vector
+        print keys[i]
+        vector_dict[keys[i]] = vector
         cnt +=1 
         fish.animate(amount=cnt)
         if cnt == buffer_length:
@@ -87,7 +90,7 @@ def main():
     cosine_distances = calc_tanimoto( refs, keys,int(args.buffer_size) )
     
     print 'persist cosine distance matrix'
-    output_file = open(args.out_cosDist_mat,'w')
+    output_file = open(args.out_tanDist_mat,'w')
     cPickle.dump( cosine_distances, output_file, -1 )
     output_file.close()
     
