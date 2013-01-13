@@ -9,10 +9,9 @@ u = array( [1,0,6] )
 v = array( [1,5,6] )
 distance.cosine(u, v)
 def refs_to_vector( doc_refs, refs_base):
-    vector = zeros( len(refs_base))
-    for i in range(len(refs_base)):
-        if refs_base[i] in doc_refs:
-            vector[i] = 1
+    vector = zeros( len(refs_base), dtype=bool)
+    for ref in doc_refs:
+        vector[refs_base.index(ref)] = True
     return vector
 
 def calc_tanimoto( refs, keys ):
@@ -24,14 +23,26 @@ def calc_tanimoto( refs, keys ):
             refs_base.append(ref)
     refs_base = list(set(refs_base))
 
+    vector_list = list()
+    print 'building matrix'
+    for i in range(no_of_docs):
+        vector_list.append( [] )
+
+
     print 'filling buffer with vectors...'
     cnt = 0
-    fish = ProgressFish(total=no_of_docs)
-    vector_list = list()
-    for doc_refs in refs:
-        vector_list.append( refs_to_vector( doc_refs, refs_base ))
-        cnt += 1
+    fish = ProgressFish(total=len(refs_base))
+    for ref in refs_base:
+        cnt+=1
+        for i in range(no_of_docs):
+            if ref in refs[i]:
+                vector_list[i].append(True)
+            else:
+                vector_list[i].append(False)
         fish.animate(amount=cnt)
+    print len(vector_list[0] )
+    print len(refs_base)
+    print 'calculating distances'
     matrix = distance.pdist(vector_list, 'rogerstanimoto')
     return matrix
 
