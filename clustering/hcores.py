@@ -1,5 +1,6 @@
 import cPickle, argparse
 from numpy import *
+from scipy.spatial import distance
 
 def count_by_weight( dissim_matrix, weight ):
 	D = []
@@ -26,17 +27,16 @@ def main():
 
 	args = parser.parse_args()
 
-	dissim_matrix = cPickle.load(open(args.in_dissim_matrix))	
+	dissim_matrix = cPickle.load(open(args.in_dissim_matrix))
+	dissim_matrix = distance.squareform(dissim_matrix, checks=True)
 	r = float(args.in_r)
-
-	r = int(args.in_r)
 
 	importance_list = count_by_weight(dissim_matrix, r)
 	k = get_k(importance_list)
-	cores = [ i for i in range(0,len(importance_list)) if importance_list[i]>=k ]
+	cores = [ i for i in range(0,len(importance_list)) if importance_list[i]>=k s]
 	
-	print dissim_matrix
-	print 'Number of Documents that are farer away than r /* r =', r, '*/, per Document: ', importance_list
+	#print dissim_matrix
+	#print 'Number of Documents that are farer away than r /* r =', r, '*/, per Document: ', importance_list
 	print 'calculated k is:', k
 	print 'Cores are (Indexes):', cores
 
