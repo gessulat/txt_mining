@@ -5,8 +5,11 @@ from scipy.spatial import distance
 def count_by_weight( dissim_matrix, weight ):
 	D = []
 	for row in range(0, len(dissim_matrix),1):
-		#D_row = reduce(lambda x,y: x+1 if y>=weight else x, dissim_matrix[row,:] )
-		D_row = len( [x for x in dissim_matrix[row,:] if x>=weight] )
+		D_row = len( [x for x in dissim_matrix[row,:] if x<=weight] ) - 1   # <= because we want to treat r as an treshold 
+																		    # for similarity but in our distance-matrix 
+																		    # as input we have values representing the 
+																		    # dissimilarity. '-1' because we don't want to 
+																		    # count the zeros on the diagonal
 		D.append(D_row)
 	return D
 
@@ -33,10 +36,10 @@ def main():
 
 	importance_list = count_by_weight(dissim_matrix, r)
 	k = get_k(importance_list)
-	cores = [ i for i in range(0,len(importance_list)) if importance_list[i]>=k s]
+	cores = [ i for i in range(0,len(importance_list)) if importance_list[i]>=k]
 	
-	#print dissim_matrix
-	#print 'Number of Documents that are farer away than r /* r =', r, '*/, per Document: ', importance_list
+	print dissim_matrix
+	print 'Number of Documents that are farer away than r /* r =', r, '*/, per Document: ', importance_list
 	print 'calculated k is:', k
 	print 'Cores are (Indexes):', cores
 
