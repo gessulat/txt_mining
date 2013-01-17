@@ -26,11 +26,10 @@ def main():
 
 	args = parser.parse_args()
 
-	#dissim_matrix = cPickle.load(args.in_dissim_matrix)
-	# ignore input for the moment
-	#r = args.in_r
+	dissim_matrix = cPickle.load(open(args.in_dissim_matrix))	
+	r = float(args.in_r)
+
 	r = int(args.in_r)
-	dissim_matrix = array([[0,0.5,1,0,5,0],[0,0.99,2,0,1,3]])
 
 	importance_list = count_by_weight(dissim_matrix, r)
 	k = get_k(importance_list)
@@ -39,12 +38,10 @@ def main():
 	print dissim_matrix
 	print 'Number of Documents that are farer away than r /* r =', r, '*/, per Document: ', importance_list
 	print 'calculated k is:', k
-	#print get_k([8,5,3,2,1]), 'good?', get_k([8,5,3,2,1])==3 # should be 3
 	print 'Cores are (Indexes):', cores
 
+	savetxt(args.out_cores, array(cores, float))
 
-	#print 'pickle this, pickle that...'
-	#cPickle.dump(cores, args.out_cores)
 	return cores
 
 if __name__ == "__main__":
