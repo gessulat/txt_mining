@@ -86,15 +86,28 @@ This method merges two scalars between 0 and 1 into a new scalar between 0 and 1
 * __Definition:__ Is the distance between document __x__, __y__ defined as ``FD=cos(λ*arccos(RTD(x,y))+(1–λ) *arccos(CD(x,y)))`` with 0<=λ<=1.
 * __Skript:__ [merge_fishersInverseChi2.py](https://github.com/gessulat/txt_mining/blob/master/distance_matrix_calc/merge_fishersInverseChi2.py)
 
+---------------------------------
+# Clustering
+
+After merging the distances the resulting distance-matrix is ready for clustering. Thera are two steps needed to be done. 
+
+* __h-cores:__ As we are interested in gaining knowledge of the usefullness of h-cores, we beginn our clustering-process by computing them for any given r.
+	* __script:__ clustering.h_cores.py
+* __k_medoids:__ We use our h-cores as the initialization of the algorithm. In order to to so, we first need to find an adequate implementation. The C-Implementation of the Univerity of Tokyo as wel as the Machine-Learning -Package from R provide those(see the Tools-section). 
+
+
+
 
 ---------------------------------
-
-
 Tools
 =====
 R
 -
 * K-Medoids
+
+C / Python
+-
+* __k_medoids__ from [The C Clustering Library](http://bonsai.hgc.jp/~mdehoon/software/cluster/cluster.pdf) (Univ. of Tokyo)
 
 
 
