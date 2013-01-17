@@ -2,6 +2,7 @@ import cPickle, argparse
 from numpy import arccos, cos
 from copy import copy
 from fish import ProgressFish
+from scipy.spatial import distance
 
 def fishers_chiSquare_method( x, y, lmbd ):
     return cos( lmbd * arccos(x)+(1-lmbd) * arccos(y) ) 
@@ -29,12 +30,7 @@ def main():
     for i in range(length):
         result[i] = fishers_chiSquare_method( cosMatrix[i], tanMatrix[i], float(args.lmbd) )
         fish.animate(amount=i)
-    print 'cos'
-    print cosMatrix
-    print 'tan'
-    print tanMatrix
-    print 'merged'
-    print result
+    print 'pickling to '+args.outPath
     f = open(args.outPath, 'w')
     cPickle.dump( result, f ) 
     f.close()

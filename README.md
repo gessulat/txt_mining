@@ -56,7 +56,7 @@ Sampling is necessary to reduce the size of the distance matrix. We consider fol
 *  __Hierarchical sampling__: A combination of other sampling methods.
 
 
-__Random sampling__ and __Reference list size sampling__ are realized by: ``sampling.py``. The script let's you choose the sampling method by the according keyword. Also see --help
+__Random sampling__ and __Reference list size sampling__ are realized by: [``sampling.py``](https://github.com/gessulat/txt_mining/blob/master/preprocessing/sampling.py). The script let's you choose the sampling method by the according keyword. Also see --help
 
 
 -----
@@ -65,17 +65,26 @@ Distances
 
 Rogers-Tanimoto Distance
 ------------------------
+This similarity measure is based on the document references. It is based on how many references two documents have in common.
+
 * __Definition:__ Rogers-Tanimoto Distance (RTD) is the distance between between document __x__ and __y__ defined as ``RTD(x,y) = Cxy / (Cx + Cy - Cxy)`` with __Cx__ (documents that are cited by __x__), __Cy__ (documents that are cited by __y__) and __Cxy__ (documented that are cited both by __x__ AND __y__)
+* __Skript:__ [batch_calc_cosine.py](https://github.com/gessulat/txt_mining/blob/master/distance_matrix_calc/batch_calc_cosine.py)
 
 
 Cosine Distance
 ---------------
+This similarity measure is based on the document's abstracts. It uses the Vector Space Model (i.e. cosine distance with bag of words) to compare two abstracts.
+
 * __Definition:__ Cosine Distance (CD) is the distance between between document __x__ and __y__ defined as ``CD(x,y)=cos(x,y)= ( x * y ) / ( |x| * |y| )``. Gewichtung möglich mit [Bag of words](http://en.wikipedia.org/wiki/Bag-of-words_model) oder [TF-IDF](http://en.wikipedia.org/wiki/Tf%E2%80%93idf)
-* To calculate the cosine distance in the bag-of-words model we need a vector for each abstract. The vector size is the same as the word_base word dictionary from our corpus, and counts the numbers each word appears in the given abstract. __Should we calculate the vectors in advance?__ We tested this on a small sample of 500 documents and the abstracts file went from 400kb to 20 mb in size. Since we assume that we 
+* To calculate the cosine distance in the bag-of-words model we need a vector for each abstract. The vector size is the same as the word_base word dictionary from our corpus, and counts the numbers each word appears in the given abstract. __Should we calculate the vectors in advance?__ We tested this on a small sample of 500 documents and the abstracts file went from 400kb to 20 mb in size. This would take to much space, therefore we calculate the vectors on-the-fly.
+* __Skript:__ [batch_calc_tanimoto.py](https://github.com/gessulat/txt_mining/blob/master/distance_matrix_calc/batch_calc_tanimoto.py)
 
 Fisher's inverse Xi^2 method
 ----------------------------
-* __Definition:__ Is the distance between document __x__, __y__ defined as ``FD=cos(λ*arccos(RTD(x,y))+(1–λ) *arccos(CD(x,y)))``mit0<=λ<=1.
+This method merges two scalars between 0 and 1 into a new scalar between 0 and 1. We use this method do merge the cosine and tanimoto distances to one. The parameter lambda determines which of the two distances to be merged has a bigger influence on the result. lambda=.5 means both have equal influence.
+
+* __Definition:__ Is the distance between document __x__, __y__ defined as ``FD=cos(λ*arccos(RTD(x,y))+(1–λ) *arccos(CD(x,y)))`` with 0<=λ<=1.
+* __Skript:__ [merge_fishersInverseChi2.py](https://github.com/gessulat/txt_mining/blob/master/distance_matrix_calc/merge_fishersInverseChi2.py)
 
 
 ---------------------------------
@@ -91,17 +100,8 @@ R
 
 SciPy
 -----
-* Tanimoto-Rogers
-* Cosine Distance
-
-
-Homebrewn
----------
-
-*	__xml2abstract.py__: extracts abstracts from a xml file (citeseer.xml) and pickles it. Filters for documents before 2010.
-*	__xml2refs.py__: extracts references from a xml file (citeseer.xml) and pickles it. Filters for documents before 2010.
-*	__abstracts2dict.py__: builds a dictionary from abstracts.pickle (stemming included)
-*	__set_extractor.py__: extracts an id sets from reference tokens or a word set from abstract tokens
+* Tanimoto-Rogers ``scipy.spatial.distance.rogerstanimoto``
+* Cosine Distance ``scipy.spatial.distance.cosine``
 
 
 
