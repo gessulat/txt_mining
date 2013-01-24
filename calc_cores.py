@@ -1,7 +1,7 @@
 from os import system
 lvalues = [25,50,75]
 datasets = ['r','mr']
-rvalues = [30,35,40,45,50]
+rvalues = [10,15,25,30,35,40,45,50]
 for lval in lvalues:
     for dset in datasets:
         for rval in rvalues:
