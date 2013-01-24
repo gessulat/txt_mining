@@ -19,26 +19,34 @@ f.close()
 
 
 print 'loading hcores...'
-cores = loadtxt('data/cores/cores_mr_10k_l50_r50.p')
+cores = loadtxt('data/cores/cores_mr_10k_l50_r10.p')
+
+print 'number of hcores'
+print len(cores)
 
 distances = distance.squareform(distances, checks=True)
-print len(distances)
+init = []
 for dist in distances:
-	minimum = None
-	print len(dist)
+	minimum = 1
+	cluster = None
+	for core in cores:
+		if minimum > dist[core]:
+			minimum = dist[core]
+			cluster = core
+	init.append(cluster)
+init = array(init)
 
 
-
-print 'cores: '+ str(len(cores))
-print cores
+print 'init length: '+ str(len(init))
 # unneccesary
 # print 'unfold compressed matrix...'
 # dist = distance.squareform(dist, checks=True)
 
-init = None	
-n = 12
-passes = 10
+#init = None	
+print init
+n = 13
+passes = 1
 
 'clustering with kmedoids'
-result = kmedoids(distance = dist, npass = passes, nclusters = n, initialid = init)
+result = kmedoids(distance = distances, initialid = init)
 print result
