@@ -36,6 +36,11 @@ for dist in distances:
 	init.append(cluster)
 init = array(init)
 
+for i in range(len(cores)):
+	for j in range(len(init)):
+		if init[j] == cores[i]:
+			init[j] = i
+
 
 print 'init length: '+ str(len(init))
 # unneccesary
