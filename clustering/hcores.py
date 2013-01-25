@@ -27,16 +27,20 @@ def main():
     parser.add_argument('in_r', help='Parameter r" ')
     parser.add_argument('in_dissim_matrix', default='../dissim_matrix_hybrid.pickle', help='The dissimilarity-Matrix to be used as a pickled Numpy-Array')
     parser.add_argument('out_cores', default='../h_cores_as_indexes.pickle', help='file path of words output file: "../h_cores_as_indexes.pickle"')
-
     args = parser.parse_args()
 
-    dissim_matrix = pickle.load(open(args.in_dissim_matrix))
+    print 'load dissimilarity matrix...'
+    f = open(args.in_dissim_matrix)
+    dissim_matrix = pickle.load(f)
+    f.close()
+
     dissim_matrix = distance.squareform(dissim_matrix, checks=True)
     r = float(args.in_r)
 
     print 'count by weight...'
     importance_list = count_by_weight(dissim_matrix, r)
     k = get_k(importance_list)
+    
     print 'calculate cores...' 
     cores = [ i for i in range(0,len(importance_list)) if importance_list[i]>=k]
 
