@@ -108,7 +108,8 @@ R
 C / Python
 -
 * __k_medoids__ from [The C Clustering Library](http://bonsai.hgc.jp/~mdehoon/software/cluster/cluster.pdf) (Univ. of Tokyo)
-
+ The returned __error measure__ is defined as follows:  
+ > The sum of distances of the items to their cluster center after k-means clustering, which can be used as a criterion to compare clustering solutions produced in different calls to kmedoids.
 
 
 SciPy

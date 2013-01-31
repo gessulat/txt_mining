@@ -1,6 +1,6 @@
 from os import system
-datasets = ['r']
-lvalues = [25]
+datasets = ['mr', 'r']
+lvalues = [50,75]
 rvalues = [5, 10, 15, 20, 25, 30]
 
 for d in datasets:

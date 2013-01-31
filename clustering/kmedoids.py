@@ -1,5 +1,5 @@
 from Pycluster import kmedoids
-from numpy import array, loadtxt 
+from numpy import array, loadtxt, set_printoptions
 from scipy.spatial import distance
 import pickle, argparse
 
@@ -31,9 +31,11 @@ def main():
 
 	cores = loadtxt(args.in_cores)
 	init = getInit( distances, cores )
+	set_printoptions(threshold='nan')	
+	set_printoptions(linewidth=900000000)	
 
 	result = kmedoids(distance = distances, initialid = init)
-	print args.in_values + " "+str(len(cores))+" "+str(result[1])
+	print args.in_values + " "+str(len(cores))+" "+str(result[1])+" "+str(result[0])
 
 if __name__ == "__main__":
     main()
