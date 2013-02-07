@@ -5,6 +5,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('in_results', help='path to result file" ')
     parser.add_argument('in_abstracts', help='path to abstracts list file" ')
+    parser.add_argument('in_stop', help='path to stop word file" ')
     args = parser.parse_args()
 
     # load results file
@@ -58,28 +59,37 @@ def main():
         for word in abstract:
             centroid_sets[centroid][word] += 1
 
-    print '---'
-    
-    print '---'
+    print 'sort words'
 
-    print '---'
-
-    print '---'
-
-    print '---'
-
-    print '---'
-
-    print '---'
-
-
-    sorted_x = sorted(centroid_sets[3063].iteritems(), key=operator.itemgetter(1))
-    print sorted_x[-20:]
-
+    word_lists = {}
+    for centroid in centroids:
+        wl = sorted(centroid_sets[int(centroid)].iteritems(), key=operator.itemgetter(1))
+        word_lists[centroid] = wl
    
+    print 'read stop words'
+    f = open(args.in_stop)
+    stop_words = f.readlines()
+    f.close()
+    for i in range(len(stop_words)):
+        stop_words[i] = str.strip(stop_words[i])
 
+    how_many_top = 40
 
-    print 'done!'
+    for centroid in centroids:
+        print 'top '+str(how_many_top)+' words for centroid: '+centroid
+        print '---'
+        top_list = []
+        for i in range(1, len(word_lists[centroid])):
+            word = word_lists[centroid][-i]
+            if word[0] not in stop_words:
+                top_list.append(word)
+            if len(top_list) >= how_many_top:
+                break
+        # print top_list
+        for tupel in top_list:
+            word, cnt = tupel
+            print word +" "+str(cnt)
+        print '===='
 
 
 
