@@ -1,8 +1,8 @@
 from os import system
-lvalues = [ 50 ]
-datasets = [ 'mr','r']
-rvalues = [ 35,40,45,50,55,60 ]
-random = "random"
+lvalues = [ 25 ]
+datasets = [ 'mr']
+rvalues = [ 5]
+random = "bla"
 print 'dataset lambda r-value error cluster'
 for lval in lvalues:
 	for dset in datasets:

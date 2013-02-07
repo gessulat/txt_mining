@@ -47,20 +47,37 @@ def main():
 
     print 'building centroid sets'
     centroid_sets = dict()
-    for centroid, abstract in centroid_words.items():
+    for centroid, word_list in centroid_words.items():
         centroid_sets[centroid] = dict()
-        word_set = list(set(abstract))
+        word_set = list(set(word_list))
         for word in word_set:
             centroid_sets[centroid][word]=0
     
+    # centroid_set_init = dict()
+    # for centroid, word_list in centroid_words.items():
+    #     centroid_set_init[centroid] = set(word_list)
+
+    # centroid_sets = dict()
+    # for centroid, c_set in centroid_set_init.items():
+    #     centroid_sets[centroid] = c_set
+    #     for other_c, other_c_set in centroid_set_init.items():
+    #         if other_c != centroid:
+    #             centroid_sets[centroid] = centroid_sets[centroid].difference( other_c_set)
+        
+    #     init_set = list(centroid_sets[centroid])
+    #     centroid_sets[centroid] = {}
+    #     for word in init_set:
+    #         centroid_sets[centroid][word]=0
+
+    print 'count words'
     for doc in range(len(categorized_docs)):
         centroid = int(categorized_docs[doc])
         abstract = abstracts[doc]
         for word in abstract:
-            centroid_sets[centroid][word] += 1
+            if word in centroid_sets[centroid]:
+                centroid_sets[centroid][word] += 1
 
     print 'sort words'
-
     word_lists = {}
     for centroid in centroids:
         wl = sorted(centroid_sets[int(centroid)].iteritems(), key=operator.itemgetter(1))
@@ -73,7 +90,7 @@ def main():
     for i in range(len(stop_words)):
         stop_words[i] = str.strip(stop_words[i])
 
-    how_many_top = 40
+    how_many_top = 10
 
     for centroid in centroids:
         print 'top '+str(how_many_top)+' words for centroid: '+centroid
@@ -88,7 +105,7 @@ def main():
         # print top_list
         for tupel in top_list:
             word, cnt = tupel
-            print word +" "+str(cnt)
+            print word
         print '===='
 
 

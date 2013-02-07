@@ -39,8 +39,8 @@ def main():
 	result = kmedoids(distance = distances, npass=20, nclusters=len(cores))
 	#result = kmedoids(distance = distances, initialid = init)
 
-	#print args.in_values + " "+str(len(cores))+" "+str(result[1])+" "+str(result[0])
-	print args.in_values + " "+str(len(cores))+" "+str(result[1])+" "+args.random_init
+	print args.in_values + " "+str(len(cores))+" "+str(result[1])+" "+str(result[0])
+	#print args.in_values + " "+str(len(cores))+" "+str(result[1])+" "+args.random_init
 
 
 if __name__ == "__main__":
