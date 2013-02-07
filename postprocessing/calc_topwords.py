@@ -1,4 +1,4 @@
-import pickle, argparse
+import pickle, argparse, operator
 
 def main():
 
@@ -57,6 +57,26 @@ def main():
         abstract = abstracts[doc]
         for word in abstract:
             centroid_sets[centroid][word] += 1
+
+    print '---'
+    
+    print '---'
+
+    print '---'
+
+    print '---'
+
+    print '---'
+
+    print '---'
+
+    print '---'
+
+
+    sorted_x = sorted(centroid_sets[3063].iteritems(), key=operator.itemgetter(1))
+    print sorted_x[-20:]
+
+   
 
 
     print 'done!'

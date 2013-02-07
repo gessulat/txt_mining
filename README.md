@@ -96,6 +96,11 @@ After merging the distances the resulting distance-matrix is ready for clusterin
 * __k_medoids:__ We use our h-cores as the initialization of the algorithm. In order to to so, we first need to find an adequate implementation. The C-Implementation of the Univerity of Tokyo as wel as the Machine-Learning -Package from R provide those(see the Tools-section). 
 
 
+---------------------------------
+# Postprocessing
+
+* __top words:__ stop word list is from [MIT](http://jmlr.csail.mit.edu/papers/volume5/lewis04a/a11-smart-stop-list/english.stop)
+
 
 
 ---------------------------------
