@@ -103,7 +103,7 @@ After merging the distances the resulting distance-matrix is ready for clusterin
 
 ---------------------------------
 # Results
-See [Paper](https://github.com/gessulat/txt_mining/blob/text_mining.pdf) (german)
+See [Paper](https://github.com/gessulat/txt_mining/blob/text_mining.pdf) or [Slides](https://github.com/gessulat/txt_mining/blob/final_presentation.pdf) (both in german)
 
 
 ---------------------------------
