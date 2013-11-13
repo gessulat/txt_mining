@@ -101,6 +101,9 @@ After merging the distances the resulting distance-matrix is ready for clusterin
 
 * __top words:__ stop word list is from [MIT](http://jmlr.csail.mit.edu/papers/volume5/lewis04a/a11-smart-stop-list/english.stop)
 
+---------------------------------
+# Results
+See [Paper](https://github.com/gessulat/txt_mining/blob/text_mining.pdf) (german)
 
 
 ---------------------------------
